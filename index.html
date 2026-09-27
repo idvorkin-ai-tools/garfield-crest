@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08030f">
+  <title>Garfield Crest</title>
+  <meta name="description" content="The Garfield High School (Seattle) crest, assembled from its seven parts in 3D.">
+  <link rel="icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {"imports": {"three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <canvas id="scene" aria-label="The Garfield High School crest. Drag to orbit."></canvas>
+  <div id="flash" aria-hidden="true"></div>
+
+  <header>
+    <div class="wordmark">Garfield<span>High School · Seattle</span></div>
+    <div class="colors" aria-hidden="true"><i></i>Purple &amp; White</div>
+  </header>
+
+  <p id="caption" aria-live="polite">Seven parts of the crest</p>
+  <div id="loading" role="status">Loading the crest…</div>
+
+  <footer>
+    <div class="controls" role="group" aria-label="Animation controls">
+      <button id="replay" type="button">↻ Replay</button>
+      <button id="separate" type="button">Separate</button>
+      <button id="pause" type="button" aria-label="Pause animation">Pause</button>
+    </div>
+    <p class="hint">Drag to orbit</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{
+ "size": [
+  1254,
+  1254
+ ],
+ "pieces": [
+  {
+   "name": "g",
+   "label": "Gothic G and base",
+   "x": 499,
+   "y": 13,
+   "w": 458,
+   "h": 324,
+   "px": 73633
+  },
+  {
+   "name": "mountain",
+   "label": "Mountain panel",
+   "x": 420,
+   "y": 313,
+   "w": 614,
+   "h": 346,
+   "px": 136243
+  },
+  {
+   "name": "needle",
+   "label": "Space Needle panel",
+   "x": 451,
+   "y": 571,
+   "w": 256,
+   "h": 422,
+   "px": 73380
+  },
+  {
+   "name": "shoe",
+   "label": "Winged shoe panel",
+   "x": 721,
+   "y": 570,
+   "w": 256,
+   "h": 421,
+   "px": 72557
+  },
+  {
+   "name": "bulldog",
+   "label": "Bulldog",
+   "x": 33,
+   "y": 360,
+   "w": 434,
+   "h": 714,
+   "px": 217413
+  },
+  {
+   "name": "banner",
+   "label": "Garfield High School banner",
+   "x": 12,
+   "y": 372,
+   "w": 1238,
+   "h": 849,
+   "px": 395700
+  },
+  {
+   "name": "frame",
+   "label": "Shield frame",
+   "x": 379,
+   "y": 277,
+   "w": 669,
+   "h": 749,
+   "px": 102488
+  }
+ ]
+}

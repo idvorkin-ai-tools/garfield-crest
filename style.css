@@ -1,0 +1,175 @@
+:root {
+  --bg: #08030f;
+  --ink: #f4ecff;
+  --muted: #b9a3d3;
+  --purple: #7b2cbf;
+  --purple-bright: #b06cff;
+  --line: rgba(190, 146, 238, 0.28);
+  --pad: 28px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Cinzel", Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+  outline: none;
+}
+#scene:active { cursor: grabbing; }
+
+#flash {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 46%, #d9b8ff 0%, #8a3cff 35%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transition: opacity 0.7s ease-out;
+}
+#flash.on { opacity: 0.85; transition: opacity 0.08s ease-in; }
+
+header {
+  position: fixed;
+  top: calc(var(--pad) + env(safe-area-inset-top));
+  left: calc(var(--pad) + env(safe-area-inset-left));
+  right: calc(var(--pad) + env(safe-area-inset-right));
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 2;
+}
+.wordmark {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.wordmark span {
+  display: block;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.36em;
+  color: var(--muted);
+}
+.colors {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 4px;
+}
+.colors i {
+  width: 22px; height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--purple) 50%, #fff 50%);
+  box-shadow: 0 0 10px rgba(176, 108, 255, 0.6);
+}
+
+#caption {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: calc(var(--pad) + 74px + env(safe-area-inset-bottom));
+  margin: 0;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+  transition: opacity 0.35s;
+  z-index: 2;
+}
+#caption.swap { opacity: 0; }
+
+#loading {
+  position: fixed;
+  top: 50%; left: 0; right: 0;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  z-index: 3;
+  pointer-events: none;
+}
+#loading.error { color: #ff9fb0; }
+#loading.done { display: none; }
+
+footer {
+  position: fixed;
+  left: calc(var(--pad) + env(safe-area-inset-left));
+  right: calc(var(--pad) + env(safe-area-inset-right));
+  bottom: calc(var(--pad) + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 2;
+}
+.controls { display: flex; gap: 8px; flex-wrap: wrap; }
+button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 20px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(25, 11, 43, 0.82);
+  color: var(--ink);
+  font: 600 13px/1 "Cinzel", Georgia, serif;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+button:hover { background: #3a1760; border-color: #c2a0e7; }
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+#separate {
+  background: #efe3ff;
+  color: #240b3a;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+#separate:hover { background: #dcc3ff; }
+.hint {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  :root { --pad: 18px; }
+  .wordmark { font-size: 14px; letter-spacing: 0.18em; }
+  .wordmark span { font-size: 8px; letter-spacing: 0.3em; }
+  .colors { font-size: 8px; }
+  footer { flex-direction: column; justify-content: center; gap: 10px; }
+  .controls { justify-content: center; }
+  button { padding: 0 16px; font-size: 12px; }
+  #caption { bottom: calc(var(--pad) + 100px + env(safe-area-inset-bottom)); font-size: 9px; letter-spacing: 0.3em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #flash, #caption, button { transition: none; }
+}
